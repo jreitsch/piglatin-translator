@@ -1,25 +1,26 @@
 var word = prompt("Enter a word to be translated");
-var firstVowel = [];
+var cons = []; // to gather the leading consonants
+word = word.toLowerCase();
+document.write("The word <i>" + word + "</i> translated into pig latin, looks like this:  ");
 
 for (i = 0; i < word.length; i += 1) {
-    // I need to test for the first vowel. Incorporate an if statement into this for loop to determine what position the first vowel is in, then take one route if it's in position 0 and the other if it comes after position 0.
+    // Determine what position the first vowel is in, then take one route if it's in position 0 and the other if it comes after position 0.
     
-    if (word[i] !== "a" && word[i] !== "e" && word[i] !== "i" && word[i] !== "o" && word[i] !== "u") {
-        // get each letter in the word, one at a time, and test for vowel. If it's consonant, iterate on.
-        document.write("consonant " + word[i] + " at position " + i + "<br>");
+    if (word[i] !== "a" && word[i] !== "e" && word[i] !== "i" && word[i] !== "o" && word[i] !== "u" && word[i] !== "y") {
+        // get each letter in the word, one at a time, and test for vowel. If it's a consonant, add it to the cons variable and iterate on.
+        cons += word[i];
     } else {
-        // if it's vowel, stop. Return position of first vowel.
-        document.write("vowel " + word[i] + " at position " + i + "<br>");
-        firstVowel = [word[i], i];
-        document.write(firstVowel);
-        document.write("the first vowel is in position: " + firstVowel[1]);
-        if (firstVowel[1] = 0) {
-            document.write(word);
+        // if it's a vowel, stop. Return position of first vowel.
+        if (i === 0) {
+            // If the word starts with a vowel, just append "way" to the end of the word.
+            document.write(word + "way");
+        } else {
+            // Move all consonants leading up to the first vowel to the end of the word and add an "ay" at the very end.
+            word = word.slice(i);
+            document.write("<b>" + word + cons + "ay</b>");
         }
-        break;
         
-
+        break;
     }
-    
-    // document.write(firstVowel);   //-- doesn't make it here.
+
 }
