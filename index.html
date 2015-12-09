@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Piglatin Translator</title>
-    <script src="pigLatin.js"></script>
+    <header><h1>Piglatin Translator!</h1></header>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="pigLatin.js" asynch></script>
 </head>
 <body>
-    <h1>Piglatin Translator!</h1>
+
+  <form>
+    Enter a word to be translated:<br>
+    <input type="text" id="word">
+    <button onclick="translateWord()">Submit</button>
+  </form>
+    
 </body>
-
-
 
 </html>
